@@ -5,20 +5,20 @@ import Auth from "../Routes/Auth";
 import Feed from "../Routes/Feed";
 
 const LoggedInRoutes = () => (
-    <>
+    <Switch>
         <Route exact path="/" component={Feed} />
-    </>
+    </Switch>
 );
 
 const LoggedOutRoutes = () => (
-    <>
+    <Switch>
         <Route exact path="/" component={Auth} />
-    </>
+    </Switch>
 );
 
 const AppRouter = ({ isLoggedIn }) => (
     <Router>
-        <Switch>{isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />}</Switch>
+        {isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />}
     </Router>
 );
 
